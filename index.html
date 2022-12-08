@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+            background-image: url("https://docs.google.com/uc?id=1N8avwvUXAGR5aPSUhVbAT5bir4tY9ztm");
+            background-size: cover;
+        }
+
+        canvas {
+            background-image: url("https://docs.google.com/uc?id=1kmT5R5MaRBD9cXcrAc6UtSgCslJLnvZT");
+            border: ridge brown 10px;
+        }
+    </style>
+</head>
+
+<body onload="cargarImagenes()">
+    
+    <canvas id="lienzo" width="700" height="500"></canvas>
+    <script>
+        canvas = document.getElementById("lienzo");
+        ctx = canvas.getContext("2d");
+        function cargarImagenes() {
+            fondo = new Image();
+            fondo.src = "https://docs.google.com/uc?id=1kmT5R5MaRBD9cXcrAc6UtSgCslJLnvZT";
+            fondo.onload = dibujarFondo;
+
+            //https://docs.google.com/uc?id=11MkVDY9DGh6OPAMrn4kaCswwZx4WI87K
+            robot = new Image();
+            robor.src = "https://docs.google.com/uc?id=11MkVDY9DGh6OPAMrn4kaCswwZx4WI87K";
+            robot.onload = dibujarRobot;
+
+        }
+        function dibujarFondo() {
+            ctx.drawImage(fondo, 0, 0);
+        }
+
+        var x = 10;
+        var y = 10;
+        function dibujarRobot() {
+            ctx.drawImage(robot, x, y, 100, 90);
+        }
+        function moverRobot(e) {
+            var tecla = e.keycode;
+            if (tecla == 37) {
+                x = x - 10;
+            }
+            if (tecla == 38) {
+                y = y - 10;
+            }
+            if (tecla == 39) {
+                x = x + 10;
+            }
+            if (tecla == 40) {
+                y = y + 10;
+            }
+            bordes();
+            dibujarFondo();
+            dibujarRobot();
+        }
+        window.addEventListener("keydown", moverRobot);
+        function borde() {
+            if (x < 0) {
+                x = canvas.width;
+            }
+            if (x > canvas.width) {
+                x = 0;
+            }
+            if (y = 0) {
+                y = canvas.heigth
+            }
+            if (Y > canvas.heigth) {
+                Y = 0;
+            }
+
+        }
+    </script>
+</body>
+
+</html>
